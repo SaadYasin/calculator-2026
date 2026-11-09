@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en" class="h-full [color-scheme:dark]">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +16,6 @@
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap"
     rel="stylesheet"
   />
-    <link rel="stylesheet" href="style.css" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -26,20 +25,47 @@
           fontFamily: {
             sans: ['"Open Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
           },
+          backgroundImage: {
+            "page-math":
+              "radial-gradient(900px 620px at 12% 8%, rgba(124,58,237,0.32), transparent 62%), radial-gradient(820px 560px at 88% 88%, rgba(76,29,149,0.42), transparent 64%), radial-gradient(620px 460px at 50% 46%, rgba(109,40,217,0.2), transparent 72%), linear-gradient(158deg, #190a2c 0%, #281043 46%, #12061f 100%)",
+            vignette:
+              "radial-gradient(ellipse at center, transparent 38%, rgba(5,2,12,0.58) 100%)",
+            glow: "radial-gradient(ellipse at center, rgba(244,205,87,0.28), transparent 68%)",
+            "calculator-body":
+              "radial-gradient(130% 85% at 18% 0%, rgba(255,255,255,0.42), transparent 56%), linear-gradient(155deg, #f5cf58 0%, #e9b63d 46%, #d69b27 100%)",
+            lcd: "repeating-linear-gradient(0deg, rgba(46,70,28,0.055) 0, rgba(46,70,28,0.055) 1px, transparent 1px, transparent 3px), linear-gradient(180deg, #dfeecb 0%, #cde1b1 58%, #c5dba6 100%)",
+            "lcd-glare":
+              "linear-gradient(118deg, rgba(255,255,255,0.24), transparent 38%)",
+            btn: "linear-gradient(180deg, #a5e0f7 0%, #79c9ec 55%, #5db8e2 100%)",
+            "btn-util": "linear-gradient(180deg, #9ad6f2 0%, #66bde6 100%)",
+            "btn-op": "linear-gradient(180deg, #8bd2f2 0%, #55b4e0 100%)",
+            "btn-equals": "linear-gradient(180deg, #7bcaf0 0%, #2f9fd8 100%)",
+          },
+          boxShadow: {
+            calculator:
+              "0 34px 62px -20px rgba(0,0,0,0.88), 0 14px 26px -10px rgba(0,0,0,0.6), 0 0 64px rgba(244,205,87,0.2), inset 0 1px 0 rgba(255,255,255,0.58), inset 0 -9px 20px rgba(120,70,10,0.24)",
+            lcd: "inset 0 4px 11px rgba(30,45,15,0.36), inset 0 -2px 4px rgba(255,255,255,0.55), 0 1px 0 rgba(255,255,255,0.38)",
+            btn: "0 4px 0 rgba(24,67,93,0.32), 0 7px 14px rgba(12,34,50,0.28), inset 0 1px 0 rgba(255,255,255,0.65)",
+            "btn-hover":
+              "0 6px 0 rgba(24,67,93,0.3), 0 11px 18px rgba(12,34,50,0.3), inset 0 1px 0 rgba(255,255,255,0.72)",
+            "btn-active":
+              "0 1px 0 rgba(24,67,93,0.35), 0 2px 5px rgba(12,34,50,0.25), inset 0 2px 6px rgba(12,34,50,0.26)",
+            "btn-focus":
+              "0 0 0 3px #fdf6df, 0 0 0 6px #3b1a5e, 0 4px 0 rgba(24,67,93,0.32), 0 7px 14px rgba(12,34,50,0.28), inset 0 1px 0 rgba(255,255,255,0.65)",
+          },
         },
       },
     };
   </script>
-  
 </head>
 
-<body class="min-h-screen font-sans text-white antialiased">
+<body class="min-h-screen bg-[#150725] bg-page-math bg-fixed font-sans text-white antialiased">
   <!-- Decorative math background -->
-  <div class="math-scene" aria-hidden="true">
-    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" fill="none">
+  <div class="pointer-events-none fixed inset-0 z-0 select-none overflow-hidden" aria-hidden="true">
+    <svg class="block h-full w-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" fill="none">
       <defs>
         <pattern id="math-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-          <path d="M 60 0 L 0 0 0 60" stroke="#c4b5fd" stroke-opacity="0.05" stroke-width="1" />
+          <path d="M 60 0 L 0 0 0 60" class="fill-none [stroke:#c4b5fd] [stroke-opacity:0.05] [stroke-width:1]" />
         </pattern>
         <radialGradient id="formula-fade" cx="50%" cy="50%" r="70%">
           <stop offset="0%" stop-color="#fff" stop-opacity="0.28" />
@@ -55,7 +81,7 @@
 
       <g mask="url(#soft-fade)">
         <!-- Formulas -->
-        <g fill="#ddd6fe" fill-opacity="0.12" font-family="'Open Sans', sans-serif" font-weight="600">
+        <g class="fill-[#ddd6fe] font-sans font-semibold [fill-opacity:0.12]">
           <text x="44" y="118" font-size="32" transform="rotate(-7 44 118)">∑ n² = n(n+1)(2n+1)/6</text>
           <text x="916" y="92" font-size="30" transform="rotate(5 916 92)">e^(iπ) + 1 = 0</text>
           <text x="54" y="296" font-size="26" transform="rotate(-4 54 296)">a² + b² = c²</text>
@@ -73,17 +99,17 @@
         </g>
 
         <!-- Diagrams -->
-        <g stroke="#c4b5fd" stroke-opacity="0.14" stroke-width="2" stroke-linecap="round">
+        <g class="[stroke:#c4b5fd] [stroke-opacity:0.14] [stroke-linecap:round] [stroke-width:2]">
           <!-- Large circle with radius and angle -->
           <circle cx="136" cy="610" r="102" />
           <path d="M 136 610 L 208 538" />
           <path d="M 168 610 A 32 32 0 0 0 159 587" />
-          <circle cx="136" cy="610" r="3" fill="#c4b5fd" fill-opacity="0.24" stroke="none" />
+          <circle cx="136" cy="610" r="3" class="fill-[#c4b5fd] [fill-opacity:0.24] [stroke:none]" />
 
           <!-- Right triangle -->
           <path d="M 1012 660 L 1148 660 L 1012 524 Z" />
           <path d="M 1012 636 L 1036 636 L 1036 660" />
-          <path d="M 1080 592 L 1128 660" stroke-dasharray="6 8" />
+          <path d="M 1080 592 L 1128 660" class="[stroke-dasharray:6_8]" />
 
           <!-- Coordinate axes and parabola -->
           <path d="M 892 328 L 1122 328" />
@@ -93,7 +119,7 @@
 
           <!-- Sine wave -->
           <path d="M 276 180 C 316 116 356 116 396 180 S 476 244 516 180 S 596 116 636 180 S 716 244 756 180" />
-          <path d="M 276 180 L 776 180" stroke-dasharray="5 9" stroke-opacity="0.08" />
+          <path d="M 276 180 L 776 180" class="[stroke-dasharray:5_9] [stroke-opacity:0.08]" />
 
           <!-- Small unit circle -->
           <circle cx="165" cy="300" r="48" />
@@ -107,26 +133,42 @@
     </svg>
   </div>
 
-  <div class="page-vignette" aria-hidden="true"></div>
+  <div class="pointer-events-none fixed inset-0 z-[1] bg-vignette" aria-hidden="true"></div>
 
   <main class="relative z-10 flex min-h-[100svh] w-full items-center justify-center px-4 py-8 sm:py-10">
-    <div class="calculator-shell w-full max-w-[22rem]">
-      <section class="calculator" aria-labelledby="calculator-title">
-        <header class="mb-4 flex items-end justify-between px-1">
+    <div
+      class="relative isolate w-full max-w-[22rem] before:absolute before:right-[-8%] before:bottom-[-5%] before:left-[-8%] before:top-[10%] before:-z-10 before:rounded-full before:bg-glow before:blur-[28px] before:content-['']"
+    >
+      <section
+        class="relative isolate rounded-[2rem] border-[3px] border-[#2a190e] bg-calculator-body p-[1.1rem] shadow-calculator before:absolute before:inset-[7px] before:z-0 before:rounded-[1.6rem] before:border before:border-white/30 before:pointer-events-none before:content-[''] max-[380px]:p-[0.95rem]"
+        aria-labelledby="calculator-title"
+      >
+        <header class="relative z-10 mb-4 flex items-end justify-between px-1">
           <div>
-            <h1 id="calculator-title" class="brand">LASIO</h1>
-            <p class="model">fx222GT</p>
+            <h1
+              id="calculator-title"
+              class="text-2xl font-extrabold leading-none tracking-[0.2em] text-[#2b1a0d] [text-shadow:0_1px_0_rgba(255,255,255,0.38)] max-[380px]:text-[1.3rem]"
+            >LASIO</h1>
+            <p class="mt-[0.3rem] text-[0.68rem] font-bold uppercase leading-none tracking-[0.2em] text-[#5e3d13]">
+              fx222GT
+            </p>
           </div>
           <p class="pb-0.5 text-right text-[0.58rem] font-bold uppercase leading-tight tracking-[0.17em] text-[#5e3d13]/65">
             12 digit<br />electronic
           </p>
         </header>
 
-        <div class="display-screen">
-          <p id="expression" class="expression" aria-hidden="true">&nbsp;</p>
+        <div
+          class="relative z-10 overflow-hidden rounded-[0.95rem] border-2 border-[#34250f] bg-lcd px-[0.9rem] pb-[0.65rem] pt-[0.7rem] shadow-lcd before:absolute before:inset-0 before:bg-lcd-glare before:pointer-events-none before:content-['']"
+        >
+          <p
+            id="expression"
+            class="relative min-h-4 truncate text-right text-[0.72rem] font-semibold leading-4 tracking-[0.035em] text-[rgba(44,62,27,0.62)]"
+            aria-hidden="true"
+          >&nbsp;</p>
           <output
             id="display"
-            class="display-value"
+            class="relative mt-[0.15rem] block truncate text-right text-[clamp(2.1rem,10vw,2.4rem)] font-bold leading-[1.1] tracking-[0.01em] text-[#203014] tabular-nums [text-shadow:0_1px_0_rgba(255,255,255,0.26)] data-[size=sm]:text-[clamp(1.6rem,7.5vw,1.8rem)] data-[size=xs]:text-[clamp(1.15rem,5.5vw,1.3rem)] data-[size=xs]:tracking-normal [&.is-error]:text-[#762417]"
             data-size="md"
             aria-live="polite"
             aria-atomic="true"
@@ -135,31 +177,31 @@
 
         <div
           id="keypad"
-          class="mt-4 grid grid-cols-4 gap-2.5 sm:mt-5 sm:gap-3"
+          class="relative z-10 mt-4 grid grid-cols-4 gap-2.5 text-[#0c2c40] sm:mt-5 sm:gap-3"
           role="group"
           aria-label="Calculator keypad"
         >
           <button
             type="button"
-            class="calc-btn calc-btn--util aspect-square text-[1.05rem] sm:text-lg"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn-util font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-[1.05rem] sm:text-lg"
             data-action="clear"
             aria-label="Clear (Escape)"
           >C</button>
           <button
             type="button"
-            class="calc-btn calc-btn--util aspect-square text-[0.95rem] sm:text-base"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn-util font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-[0.95rem] sm:text-base"
             data-action="sign"
             aria-label="Toggle sign (plus or minus)"
           >+/-</button>
           <button
             type="button"
-            class="calc-btn calc-btn--util aspect-square text-[1.05rem] sm:text-lg"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn-util font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-[1.05rem] sm:text-lg"
             data-action="percent"
             aria-label="Percent"
           >%</button>
           <button
             type="button"
-            class="calc-btn calc-btn--op aspect-square text-xl sm:text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn-op font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-xl sm:text-2xl"
             data-action="operator"
             data-value="/"
             aria-label="Divide"
@@ -167,28 +209,28 @@
 
           <button
             type="button"
-            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-[1.4rem] sm:text-2xl"
             data-action="digit"
             data-value="7"
             aria-label="7"
           >7</button>
           <button
             type="button"
-            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-[1.4rem] sm:text-2xl"
             data-action="digit"
             data-value="8"
             aria-label="8"
           >8</button>
           <button
             type="button"
-            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-[1.4rem] sm:text-2xl"
             data-action="digit"
             data-value="9"
             aria-label="9"
           >9</button>
           <button
             type="button"
-            class="calc-btn calc-btn--op aspect-square text-xl sm:text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn-op font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-xl sm:text-2xl"
             data-action="operator"
             data-value="*"
             aria-label="Multiply"
@@ -196,28 +238,28 @@
 
           <button
             type="button"
-            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-[1.4rem] sm:text-2xl"
             data-action="digit"
             data-value="4"
             aria-label="4"
           >4</button>
           <button
             type="button"
-            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-[1.4rem] sm:text-2xl"
             data-action="digit"
             data-value="5"
             aria-label="5"
           >5</button>
           <button
             type="button"
-            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-[1.4rem] sm:text-2xl"
             data-action="digit"
             data-value="6"
             aria-label="6"
           >6</button>
           <button
             type="button"
-            class="calc-btn calc-btn--op aspect-square text-xl sm:text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn-op font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-xl sm:text-2xl"
             data-action="operator"
             data-value="-"
             aria-label="Subtract"
@@ -225,28 +267,28 @@
 
           <button
             type="button"
-            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-[1.4rem] sm:text-2xl"
             data-action="digit"
             data-value="1"
             aria-label="1"
           >1</button>
           <button
             type="button"
-            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-[1.4rem] sm:text-2xl"
             data-action="digit"
             data-value="2"
             aria-label="2"
           >2</button>
           <button
             type="button"
-            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-[1.4rem] sm:text-2xl"
             data-action="digit"
             data-value="3"
             aria-label="3"
           >3</button>
           <button
             type="button"
-            class="calc-btn calc-btn--op aspect-square text-xl sm:text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn-op font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-xl sm:text-2xl"
             data-action="operator"
             data-value="+"
             aria-label="Add"
@@ -254,30 +296,35 @@
 
           <button
             type="button"
-            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-[1.4rem] sm:text-2xl"
             data-action="digit"
             data-value="0"
             aria-label="0"
           >0</button>
           <button
             type="button"
-            class="calc-btn aspect-square text-2xl"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn font-bold shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none aspect-square text-2xl"
             data-action="decimal"
             aria-label="Decimal point"
           >.</button>
           <button
             type="button"
-            class="calc-btn calc-btn--equals col-span-2 aspect-auto h-full text-2xl sm:text-[1.7rem]"
+            class="relative flex min-h-11 touch-manipulation items-center justify-center rounded-full border-2 border-[rgba(24,67,93,0.55)] bg-btn-equals font-bold text-[#05293d] shadow-btn transition-[transform,box-shadow,filter,background] duration-[120ms] ease-in [-webkit-tap-highlight-color:transparent] hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-hover active:translate-y-[3px] active:brightness-[0.96] active:shadow-btn-active focus-visible:z-[2] focus-visible:outline-none focus-visible:!shadow-btn-focus [&.is-pressed]:translate-y-[3px] [&.is-pressed]:brightness-[0.96] [&.is-pressed]:shadow-btn-active motion-reduce:transition-none col-span-2 aspect-auto h-full text-2xl sm:text-[1.7rem]"
             data-action="equals"
             aria-label="Equals"
           >=</button>
         </div>
       </section>
 
-      <p class="hint mt-5 text-center text-[0.7rem] leading-relaxed text-violet-100/45">
+      <p class="mt-5 text-center text-[0.7rem] leading-relaxed text-violet-100/45">
         <span class="font-semibold text-violet-100/70">Keyboard ready:</span>
-        digits, + − × ÷, <kbd>Enter</kbd> equals, <kbd>Esc</kbd> clears,
-        <kbd>F9</kbd> toggles sign
+        digits, + − × ÷,
+        <kbd class="inline-block rounded-[0.3rem] border border-[rgba(221,214,254,0.24)] bg-white/[0.06] px-[0.3rem] py-[0.05rem] font-sans text-[0.65rem] leading-[1.1] text-[rgba(237,233,254,0.78)]">Enter</kbd>
+        equals,
+        <kbd class="inline-block rounded-[0.3rem] border border-[rgba(221,214,254,0.24)] bg-white/[0.06] px-[0.3rem] py-[0.05rem] font-sans text-[0.65rem] leading-[1.1] text-[rgba(237,233,254,0.78)]">Esc</kbd>
+        clears,
+        <kbd class="inline-block rounded-[0.3rem] border border-[rgba(221,214,254,0.24)] bg-white/[0.06] px-[0.3rem] py-[0.05rem] font-sans text-[0.65rem] leading-[1.1] text-[rgba(237,233,254,0.78)]">F9</kbd>
+        toggles sign
       </p>
     </div>
   </main>
