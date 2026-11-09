@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#180a2b" />
+  <meta
+    name="description"
+    content="A bright yellow LASIO fx222GT calculator with a violet math-themed background."
+  />
+  <title>LASIO fx222GT — Calculator</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap"
+    rel="stylesheet"
+  />
+    <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Open Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  
+</head>
+
+<body class="min-h-screen font-sans text-white antialiased">
+  <!-- Decorative math background -->
+  <div class="math-scene" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" fill="none">
+      <defs>
+        <pattern id="math-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path d="M 60 0 L 0 0 0 60" stroke="#c4b5fd" stroke-opacity="0.05" stroke-width="1" />
+        </pattern>
+        <radialGradient id="formula-fade" cx="50%" cy="50%" r="70%">
+          <stop offset="0%" stop-color="#fff" stop-opacity="0.28" />
+          <stop offset="72%" stop-color="#fff" stop-opacity="0.85" />
+          <stop offset="100%" stop-color="#fff" stop-opacity="1" />
+        </radialGradient>
+        <mask id="soft-fade">
+          <rect width="1200" height="800" fill="url(#formula-fade)" />
+        </mask>
+      </defs>
+
+      <rect width="1200" height="800" fill="url(#math-grid)" />
+
+      <g mask="url(#soft-fade)">
+        <!-- Formulas -->
+        <g fill="#ddd6fe" fill-opacity="0.12" font-family="'Open Sans', sans-serif" font-weight="600">
+          <text x="44" y="118" font-size="32" transform="rotate(-7 44 118)">∑ n² = n(n+1)(2n+1)/6</text>
+          <text x="916" y="92" font-size="30" transform="rotate(5 916 92)">e^(iπ) + 1 = 0</text>
+          <text x="54" y="296" font-size="26" transform="rotate(-4 54 296)">a² + b² = c²</text>
+          <text x="958" y="256" font-size="25" transform="rotate(4 958 256)">sin²θ + cos²θ = 1</text>
+          <text x="34" y="742" font-size="29" transform="rotate(3 34 742)">∫ e⁻ˣ² dx = √π</text>
+          <text x="866" y="730" font-size="26" transform="rotate(-5 866 730)">ƒ(x) = ax² + bx + c</text>
+          <text x="438" y="66" font-size="23">lim x→∞ 1/x = 0</text>
+          <text x="484" y="774" font-size="23">π ≈ 3.14159</text>
+          <text x="302" y="392" font-size="19" transform="rotate(-3 302 392)">Δy / Δx</text>
+          <text x="820" y="444" font-size="19" transform="rotate(3 820 444)">∂f / ∂x</text>
+          <text x="646" y="122" font-size="17" transform="rotate(8 646 122)">θ = 45°</text>
+          <text x="700" y="690" font-size="17" transform="rotate(-6 700 690)">log₂ 8 = 3</text>
+          <text x="108" y="430" font-size="15" transform="rotate(-8 108 430)">√2 ≈ 1.414</text>
+          <text x="1074" y="470" font-size="15" transform="rotate(7 1074 470)">∞</text>
+        </g>
+
+        <!-- Diagrams -->
+        <g stroke="#c4b5fd" stroke-opacity="0.14" stroke-width="2" stroke-linecap="round">
+          <!-- Large circle with radius and angle -->
+          <circle cx="136" cy="610" r="102" />
+          <path d="M 136 610 L 208 538" />
+          <path d="M 168 610 A 32 32 0 0 0 159 587" />
+          <circle cx="136" cy="610" r="3" fill="#c4b5fd" fill-opacity="0.24" stroke="none" />
+
+          <!-- Right triangle -->
+          <path d="M 1012 660 L 1148 660 L 1012 524 Z" />
+          <path d="M 1012 636 L 1036 636 L 1036 660" />
+          <path d="M 1080 592 L 1128 660" stroke-dasharray="6 8" />
+
+          <!-- Coordinate axes and parabola -->
+          <path d="M 892 328 L 1122 328" />
+          <path d="M 930 190 L 930 356" />
+          <path d="M 898 320 Q 996 154 1094 320" />
+          <path d="M 1084 320 L 1094 320 L 1090 310" />
+
+          <!-- Sine wave -->
+          <path d="M 276 180 C 316 116 356 116 396 180 S 476 244 516 180 S 596 116 636 180 S 716 244 756 180" />
+          <path d="M 276 180 L 776 180" stroke-dasharray="5 9" stroke-opacity="0.08" />
+
+          <!-- Small unit circle -->
+          <circle cx="165" cy="300" r="48" />
+          <path d="M 165 300 L 203 272" />
+          <path d="M 188 300 A 23 23 0 0 0 182 284" />
+
+          <!-- Axis ticks -->
+          <path d="M 920 328 L 920 336 M 960 328 L 960 336 M 1000 328 L 1000 336 M 1040 328 L 1040 336 M 1080 328 L 1080 336" />
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="page-vignette" aria-hidden="true"></div>
+
+  <main class="relative z-10 flex min-h-[100svh] w-full items-center justify-center px-4 py-8 sm:py-10">
+    <div class="calculator-shell w-full max-w-[22rem]">
+      <section class="calculator" aria-labelledby="calculator-title">
+        <header class="mb-4 flex items-end justify-between px-1">
+          <div>
+            <h1 id="calculator-title" class="brand">LASIO</h1>
+            <p class="model">fx222GT</p>
+          </div>
+          <p class="pb-0.5 text-right text-[0.58rem] font-bold uppercase leading-tight tracking-[0.17em] text-[#5e3d13]/65">
+            12 digit<br />electronic
+          </p>
+        </header>
+
+        <div class="display-screen">
+          <p id="expression" class="expression" aria-hidden="true">&nbsp;</p>
+          <output
+            id="display"
+            class="display-value"
+            data-size="md"
+            aria-live="polite"
+            aria-atomic="true"
+          >0</output>
+        </div>
+
+        <div
+          id="keypad"
+          class="mt-4 grid grid-cols-4 gap-2.5 sm:mt-5 sm:gap-3"
+          role="group"
+          aria-label="Calculator keypad"
+        >
+          <button
+            type="button"
+            class="calc-btn calc-btn--util aspect-square text-[1.05rem] sm:text-lg"
+            data-action="clear"
+            aria-label="Clear (Escape)"
+          >C</button>
+          <button
+            type="button"
+            class="calc-btn calc-btn--util aspect-square text-[0.95rem] sm:text-base"
+            data-action="sign"
+            aria-label="Toggle sign (plus or minus)"
+          >+/-</button>
+          <button
+            type="button"
+            class="calc-btn calc-btn--util aspect-square text-[1.05rem] sm:text-lg"
+            data-action="percent"
+            aria-label="Percent"
+          >%</button>
+          <button
+            type="button"
+            class="calc-btn calc-btn--op aspect-square text-xl sm:text-2xl"
+            data-action="operator"
+            data-value="/"
+            aria-label="Divide"
+          >÷</button>
+
+          <button
+            type="button"
+            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            data-action="digit"
+            data-value="7"
+            aria-label="7"
+          >7</button>
+          <button
+            type="button"
+            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            data-action="digit"
+            data-value="8"
+            aria-label="8"
+          >8</button>
+          <button
+            type="button"
+            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            data-action="digit"
+            data-value="9"
+            aria-label="9"
+          >9</button>
+          <button
+            type="button"
+            class="calc-btn calc-btn--op aspect-square text-xl sm:text-2xl"
+            data-action="operator"
+            data-value="*"
+            aria-label="Multiply"
+          >×</button>
+
+          <button
+            type="button"
+            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            data-action="digit"
+            data-value="4"
+            aria-label="4"
+          >4</button>
+          <button
+            type="button"
+            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            data-action="digit"
+            data-value="5"
+            aria-label="5"
+          >5</button>
+          <button
+            type="button"
+            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            data-action="digit"
+            data-value="6"
+            aria-label="6"
+          >6</button>
+          <button
+            type="button"
+            class="calc-btn calc-btn--op aspect-square text-xl sm:text-2xl"
+            data-action="operator"
+            data-value="-"
+            aria-label="Subtract"
+          >−</button>
+
+          <button
+            type="button"
+            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            data-action="digit"
+            data-value="1"
+            aria-label="1"
+          >1</button>
+          <button
+            type="button"
+            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            data-action="digit"
+            data-value="2"
+            aria-label="2"
+          >2</button>
+          <button
+            type="button"
+            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            data-action="digit"
+            data-value="3"
+            aria-label="3"
+          >3</button>
+          <button
+            type="button"
+            class="calc-btn calc-btn--op aspect-square text-xl sm:text-2xl"
+            data-action="operator"
+            data-value="+"
+            aria-label="Add"
+          >+</button>
+
+          <button
+            type="button"
+            class="calc-btn aspect-square text-[1.4rem] sm:text-2xl"
+            data-action="digit"
+            data-value="0"
+            aria-label="0"
+          >0</button>
+          <button
+            type="button"
+            class="calc-btn aspect-square text-2xl"
+            data-action="decimal"
+            aria-label="Decimal point"
+          >.</button>
+          <button
+            type="button"
+            class="calc-btn calc-btn--equals col-span-2 aspect-auto h-full text-2xl sm:text-[1.7rem]"
+            data-action="equals"
+            aria-label="Equals"
+          >=</button>
+        </div>
+      </section>
+
+      <p class="hint mt-5 text-center text-[0.7rem] leading-relaxed text-violet-100/45">
+        <span class="font-semibold text-violet-100/70">Keyboard ready:</span>
+        digits, + − × ÷, <kbd>Enter</kbd> equals, <kbd>Esc</kbd> clears,
+        <kbd>F9</kbd> toggles sign
+      </p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
